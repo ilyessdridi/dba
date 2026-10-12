@@ -1,4 +1,4 @@
-*******    Here is the complete PowerShell command we used to configure Oracle SQL*Plus permanently for horizontal output   ******
+        *******    Here is the complete PowerShell command we used to configure Oracle SQL*Plus permanently for horizontal output   ******
 New-Item -ItemType Directory -Force C:\OracleConfig | Out-Null
 
 @'
@@ -13,4 +13,14 @@ column issys_modifiable format a20
 
 [Environment]::SetEnvironmentVariable("SQLPATH", "C:\OracleConfig", "User")
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      ******** shortcut in MobaXterm to open sql plus as SYS and HR  *********************
+cat >> ~/.bashrc <<'EOF'
+
+# Oracle SQL*Plus shortcuts
+alias oracledba='/drives/c/oraclexe/app/oracle/product/11.2.0/server/bin/sqlplus.exe / as sysdba'
+alias oraclehr='/drives/c/oraclexe/app/oracle/product/11.2.0/server/bin/sqlplus.exe hr'
+EOF
+source ~/.bashrc
+
+ 
